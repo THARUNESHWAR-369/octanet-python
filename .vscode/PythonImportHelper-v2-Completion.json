@@ -1,0 +1,96 @@
+[
+    {
+        "label": "User",
+        "importPath": "user",
+        "description": "user",
+        "isExtraImport": true,
+        "detail": "user",
+        "documentation": {}
+    },
+    {
+        "label": "Transaction",
+        "importPath": "transaction",
+        "description": "transaction",
+        "isExtraImport": true,
+        "detail": "transaction",
+        "documentation": {}
+    },
+    {
+        "label": "Transaction",
+        "importPath": "transaction",
+        "description": "transaction",
+        "isExtraImport": true,
+        "detail": "transaction",
+        "documentation": {}
+    },
+    {
+        "label": "Transaction",
+        "importPath": "transaction",
+        "description": "transaction",
+        "isExtraImport": true,
+        "detail": "transaction",
+        "documentation": {}
+    },
+    {
+        "label": "Transaction",
+        "importPath": "transaction",
+        "description": "transaction",
+        "isExtraImport": true,
+        "detail": "transaction",
+        "documentation": {}
+    },
+    {
+        "label": "ATM",
+        "kind": 6,
+        "importPath": "atm_interface.atm",
+        "description": "atm_interface.atm",
+        "peekOfCode": "class ATM:\n    def __init__(self):\n        self.users = {}\n        self.users[\"user1\"] = User(\"user1\", \"1234\")\n        self.users[\"user2\"] = User(\"user2\", \"5678\")\n    def create_user(self, user_id, pin):\n        if user_id not in self.users:\n            self.users[user_id] = User(user_id, pin)\n            return True\n        else:",
+        "detail": "atm_interface.atm",
+        "documentation": {}
+    },
+    {
+        "label": "Deposit",
+        "kind": 6,
+        "importPath": "atm_interface.deposit",
+        "description": "atm_interface.deposit",
+        "peekOfCode": "class Deposit(Transaction):\n    def __init__(self, amount):\n        super().__init__('DEPOSIT', amount)",
+        "detail": "atm_interface.deposit",
+        "documentation": {}
+    },
+    {
+        "label": "Transaction",
+        "kind": 6,
+        "importPath": "atm_interface.transaction",
+        "description": "atm_interface.transaction",
+        "peekOfCode": "class Transaction:\n    def __init__(self, transaction_type, amount, target_user=None):\n        self.transaction_type = transaction_type\n        self.amount = amount\n        self.target_user = target_user\n    def __str__(self):\n        if self.transaction_type == 'DEPOSIT':\n            return f'Deposited ${self.amount}'\n        elif self.transaction_type == 'WITHDRAW':\n            return f'Withdrew ${self.amount}'",
+        "detail": "atm_interface.transaction",
+        "documentation": {}
+    },
+    {
+        "label": "Transfer",
+        "kind": 6,
+        "importPath": "atm_interface.transfer",
+        "description": "atm_interface.transfer",
+        "peekOfCode": "class Transfer(Transaction):\n    def __init__(self, amount, target_user):\n        super().__init__('TRANSFER', amount, target_user)",
+        "detail": "atm_interface.transfer",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "atm_interface.user",
+        "description": "atm_interface.user",
+        "peekOfCode": "class User:\n    def __init__(self, user_id, pin):\n        self.user_id = user_id\n        self.pin = pin\n        self.balance = 0\n        self.transaction_history = []\n    def authenticate(self, user_id, pin):\n        return self.user_id == user_id and self.pin == pin\n    def deposit(self, amount):\n        if amount > 0:",
+        "detail": "atm_interface.user",
+        "documentation": {}
+    },
+    {
+        "label": "Withdrawal",
+        "kind": 6,
+        "importPath": "atm_interface.withdrawal",
+        "description": "atm_interface.withdrawal",
+        "peekOfCode": "class Withdrawal(Transaction):\n    def __init__(self, amount):\n        super().__init__('WITHDRAW', amount)",
+        "detail": "atm_interface.withdrawal",
+        "documentation": {}
+    }
+]
